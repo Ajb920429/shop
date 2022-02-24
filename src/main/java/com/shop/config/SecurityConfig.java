@@ -42,22 +42,22 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter { //  SpringSec
 ////        http.exceptionHandling()
 ////                .authenticationEntryPoint(new CustomAuthenticationEntryPoint())
 ////        ;
-    }
-
-    @Bean
-    public PasswordEncoder passwordEncoder() { // 데이터 베이스가 해킹당하면 그대로 노출 되기 때문에 암호화하여 저장장
-       return new BCryptPasswordEncoder();
-    } //
-
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception { //
-        auth.userDetailsService(memberService)
-                .passwordEncoder(passwordEncoder());
-    }
-
-    @Override
-    public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/css/**", "/js/**", "/img/**");
-    }
+//    }
+//
+//    @Bean
+//    public PasswordEncoder passwordEncoder() { // 데이터 베이스가 해킹당하면 그대로 노출 되기 때문에 암호화하여 저장장
+//       return new BCryptPasswordEncoder();
+//    } //
+//
+//    @Override
+//    protected void configure(AuthenticationManagerBuilder auth) throws Exception { //
+//        auth.userDetailsService(memberService)
+//                .passwordEncoder(passwordEncoder());
+//    }
+//
+//    @Override
+//    public void configure(WebSecurity web) throws Exception {
+//        web.ignoring().antMatchers("/css/**", "/js/**", "/img/**");
+//    }
 
 }
