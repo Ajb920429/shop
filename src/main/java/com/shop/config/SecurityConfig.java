@@ -17,8 +17,8 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @EnableWebSecurity // // WebSecurityConfigurerAdapter 를 상속 받는 클래스에 @EnableWebSecurity 어노테이션을 선언하면
 public class SecurityConfig extends WebSecurityConfigurerAdapter { //  SpringSecurityFiterChain 이 자동으로 포함됩니다. WebSecurityConfigurerAdapter 를 상속받아서 오버라이딩을 통해 보안 설정을 커스터마이징 할 수 있다.
 
-    @Autowired
-    MemberService memberService;
+//    @Autowired
+//    MemberService memberService;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception { // http 요청에 대한 보안설정을 합니다.
@@ -42,22 +42,22 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter { //  SpringSec
 ////        http.exceptionHandling()
 ////                .authenticationEntryPoint(new CustomAuthenticationEntryPoint())
 ////        ;
-//    }
-//
-//    @Bean
-//    public PasswordEncoder passwordEncoder() { // 데이터 베이스가 해킹당하면 그대로 노출 되기 때문에 암호화하여 저장장
-//       return new BCryptPasswordEncoder();
-//    } //
-//
+    }
+
+    @Bean
+    public PasswordEncoder passwordEncoder() { // 데이터 베이스가 해킹당하면 그대로 노출 되기 때문에 암호화하여 저장장
+       return new BCryptPasswordEncoder();
+    } //
+
 //    @Override
 //    protected void configure(AuthenticationManagerBuilder auth) throws Exception { //
 //        auth.userDetailsService(memberService)
 //                .passwordEncoder(passwordEncoder());
 //    }
-//
-//    @Override
-//    public void configure(WebSecurity web) throws Exception {
-//        web.ignoring().antMatchers("/css/**", "/js/**", "/img/**");
-//    }
+
+    @Override
+    public void configure(WebSecurity web) throws Exception {
+        web.ignoring().antMatchers("/css/**", "/js/**", "/img/**");
+    }
 
 }
