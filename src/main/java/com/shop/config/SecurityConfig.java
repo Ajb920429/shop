@@ -22,26 +22,26 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter { //  SpringSec
 
     @Override
     protected void configure(HttpSecurity http) throws Exception { // http 요청에 대한 보안설정을 합니다.
-        http.formLogin()
-                .loginPage("/members/login") // 로그인 페이지 URL 설정
-                .defaultSuccessUrl("/") // 로그인 성공 시 이동할 URL 설정
-                .usernameParameter("email") // 로그인 시 사용할 파라미터로 이메일을 지정
-                .failureUrl("/members/login/error") // 로그인 실패시 이동할 URL 지정
-                .and()
-                .logout()
-                .logoutRequestMatcher(new AntPathRequestMatcher("/members/logout")) // 로그아웃 URL 설정
-                .logoutSuccessUrl("/") // 로그아웃 설공시 이동할 URL 설정
-        ;
-
-        http.authorizeRequests()
-                .mvcMatchers("/", "/members/**", "/item/**", "/images/**").permitAll()
-                .mvcMatchers("/admin/**").hasRole("ADMIN")
-                .anyRequest().authenticated()
-        ;
-
-//        http.exceptionHandling()
-//                .authenticationEntryPoint(new CustomAuthenticationEntryPoint())
+//        http.formLogin()
+//                .loginPage("/members/login") // 로그인 페이지 URL 설정
+//                .defaultSuccessUrl("/") // 로그인 성공 시 이동할 URL 설정
+//                .usernameParameter("email") // 로그인 시 사용할 파라미터로 이메일을 지정
+//                .failureUrl("/members/login/error") // 로그인 실패시 이동할 URL 지정
+//                .and()
+//                .logout()
+//                .logoutRequestMatcher(new AntPathRequestMatcher("/members/logout")) // 로그아웃 URL 설정
+//                .logoutSuccessUrl("/") // 로그아웃 설공시 이동할 URL 설정
 //        ;
+//
+//        http.authorizeRequests()
+//                .mvcMatchers("/", "/members/**", "/item/**", "/images/**").permitAll()
+//                .mvcMatchers("/admin/**").hasRole("ADMIN")
+//                .anyRequest().authenticated()
+//        ;
+//
+////        http.exceptionHandling()
+////                .authenticationEntryPoint(new CustomAuthenticationEntryPoint())
+////        ;
     }
 
     @Bean
