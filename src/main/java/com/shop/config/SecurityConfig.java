@@ -55,9 +55,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter { //  SpringSec
 //                .passwordEncoder(passwordEncoder());
 //    }
 
-    @Override
-    public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/css/**", "/js/**", "/img/**");
-    }
+//    @Override
+//    public void configure(WebSecurity web) throws Exception {
+//        web.ignoring().antMatchers("/css/**", "/js/**", "/img/**");
+//    }
 
 }

@@ -52,7 +52,9 @@
         <div style="text-align: center">
             <button type="submit" class="btn btn-primary" style="">Submit</button>
         </div>
-        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"> //
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+<!--        // 스프링 시큐리티를 사용할 경우 기본적으로 csrf 를 방어하기 위해서 모든 post 방식의 데이터 전송에는 csrf 방식이 있어야한다.-->
+<!--        // csrf 토큰은 실제 서버에서 허용한 요청이 맞는지 확인하기 위한 토큰 사용자의 세션의 임의의 값을 저장하여 요청마다 그 값을 포함하여 전송하면 서버에서 세션의 저장된 값과 요청 값이 일치하는지 확인 하여 csrf 를 방어-->
     </form>
 
 </div>

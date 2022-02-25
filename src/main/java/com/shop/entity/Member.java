@@ -39,7 +39,7 @@ public class Member extends BaseEntity { // 회원정보를 저장하는 엔티�
         member.setAddress(memberFormDto.getAddress());
         String password = passwordEncoder.encode(memberFormDto.getPassword()); // BCryptPasswordEncoder 으로 넘겨서 비밀번호 암호화
         member.setPassword(password);
-        member.setRole(Role.ADMIN);
+        member.setRole(Role.USER);
         return member;
     }
 
